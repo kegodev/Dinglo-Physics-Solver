@@ -80,5 +80,25 @@ class FormulaSolverTests(unittest.TestCase):
             self.solve("projectile", u="20", theta="120", g="9.81")
 
 
+class ThemeAssetTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.html = (PROJECT_ROOT / "templates" / "index.html").read_text(encoding="utf-8")
+        cls.css = (PROJECT_ROOT / "static" / "style.css").read_text(encoding="utf-8")
+        cls.javascript = (PROJECT_ROOT / "static" / "app.js").read_text(encoding="utf-8")
+
+    def test_theme_toggle_is_accessible(self):
+        self.assertIn('id="theme-toggle"', self.html)
+        self.assertIn('aria-label="Switch to dark mode"', self.html)
+
+    def test_dark_theme_styles_are_present(self):
+        self.assertIn('[data-theme="dark"]', self.css)
+        self.assertIn("color-scheme:dark", self.css)
+
+    def test_theme_preference_is_saved(self):
+        self.assertIn('localStorage.setItem("dinglo-theme"', self.javascript)
+        self.assertIn("prefers-color-scheme: dark", self.javascript)
+
+
 if __name__ == "__main__":
     unittest.main()
