@@ -15,6 +15,48 @@ const topics = ["All", "Forces", "Momentum", "Projectile", "Energy"];
 let activeTopic = "All";
 const grid = document.querySelector("#calculator-grid");
 const tabs = document.querySelector(".tabs");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeIcon = themeToggle.querySelector(".theme-icon");
+const themeText = themeToggle.querySelector(".theme-text");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+function savedTheme() {
+  try {
+    return localStorage.getItem("dinglo-theme");
+  } catch {
+    return null;
+  }
+}
+
+function applyTheme(theme, save = false) {
+  const dark = theme === "dark";
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+  themeToggle.setAttribute("aria-pressed", String(dark));
+  themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  themeIcon.textContent = dark ? "☀" : "☾";
+  themeText.textContent = dark ? "Light" : "Dark";
+
+  if (save) {
+    try {
+      localStorage.setItem("dinglo-theme", dark ? "dark" : "light");
+    } catch {
+      // The selected theme still works when storage is unavailable.
+    }
+  }
+}
+
+applyTheme(document.documentElement.dataset.theme || (systemTheme.matches ? "dark" : "light"));
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme, true);
+});
+
+systemTheme.addEventListener("change", event => {
+  if (!savedTheme()) {
+    applyTheme(event.matches ? "dark" : "light");
+  }
+});
 
 function renderTabs() {
   tabs.innerHTML = topics.map(topic => `<button type="button" class="${topic === activeTopic ? "active" : ""}" data-topic="${topic}">${topic}</button>`).join("");
