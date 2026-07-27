@@ -4,13 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Dinglo calculator for Newton's laws, momentum, projectile motion, work and energy.">
+  <meta name="color-scheme" content="light dark">
   <title>Dinglo Physics Solver</title>
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("dinglo-theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#top"><span class="brand-mark">D</span><span>Dinglo <b>Physics</b></span></a>
-    <a class="header-link" href="#solvers">Open solvers</a>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-text">Dark</span>
+      </button>
+      <a class="header-link" href="#solvers">Open solvers</a>
+    </div>
   </header>
 
   <main>

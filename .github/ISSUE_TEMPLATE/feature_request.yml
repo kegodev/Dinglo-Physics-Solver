@@ -1,0 +1,64 @@
+name: Feature request
+description: Suggest an improvement or a new learning feature.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Explain the learning problem first, then describe the proposed solution.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Learning problem
+      description: What difficulty would this feature solve for learners?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe how the feature should work.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - New physics calculator
+        - Existing calculation
+        - Step-by-step explanation
+        - Accessibility
+        - User interface
+        - Documentation
+        - Testing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: physics
+    attributes:
+      label: Physics details
+      description: Include equations, variables, units and assumptions when relevant.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you consider?
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues for a similar request.
+          required: true
+        - label: I am willing to work on this feature.
+          required: false

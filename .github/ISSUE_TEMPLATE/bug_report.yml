@@ -1,0 +1,81 @@
+name: Bug report
+description: Report a reproducible problem in the physics solver.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Dinglo Physics Solver. Do not include passwords, API keys or other private information.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Newton's laws
+        - Momentum and impulse
+        - Projectile motion
+        - Work and energy
+        - Dark or light mode
+        - Mobile layout
+        - Python server or API
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Explain what went wrong.
+      placeholder: The solver returns...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the calculator and every value entered.
+      placeholder: |
+        1. Open...
+        2. Enter...
+        3. Select...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Include the formula or correct numerical result when relevant.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version and browser.
+      placeholder: Windows 11, Python 3.12, Chrome
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or additional information
+      description: Drag screenshots here or add useful context.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I removed private information from this report.
+          required: true
