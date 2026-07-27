@@ -5,9 +5,6 @@ from the variables supplied by the learner. It covers Newton's laws, momentum,
 projectile motion, work and energy while showing the formula, substitution and
 final answer.
 
-**Live application:**  
-[dinglo-physics-solver.kegorapetsemangena.chatgpt.site](https://dinglo-physics-solver.kegorapetsemangena.chatgpt.site)
-
 ## About the project
 
 Dinglo Physics Solver is designed for learners who know some of the variables
