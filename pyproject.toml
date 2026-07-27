@@ -8,6 +8,3 @@ authors = [
   { name = "Mangena Kegorapetse" }
 ]
 dependencies = []
-
-[project.urls]
-Homepage = "https://dinglo-physics-solver.kegorapetsemangena.chatgpt.site"
