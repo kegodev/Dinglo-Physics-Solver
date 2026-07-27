@@ -9,8 +9,6 @@ final answer.
 submit a pull request. New contributors can start with tasks labelled
 `good first issue`.
 
-**Live application:**  
-[dinglo-physics-solver.kegorapetsemangena.chatgpt.site](https://dinglo-physics-solver.kegorapetsemangena.chatgpt.site)
 
 ## About the project
 
