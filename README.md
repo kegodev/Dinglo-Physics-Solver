@@ -5,6 +5,13 @@ from the variables supplied by the learner. It covers Newton's laws, momentum,
 projectile motion, work and energy while showing the formula, substitution and
 final answer.
 
+**Contributions are welcome.** Choose an open issue, fork the repository and
+submit a pull request. New contributors can start with tasks labelled
+`good first issue`.
+
+**Live application:**  
+[dinglo-physics-solver.kegorapetsemangena.chatgpt.site](https://dinglo-physics-solver.kegorapetsemangena.chatgpt.site)
+
 ## About the project
 
 Dinglo Physics Solver is designed for learners who know some of the variables
@@ -42,6 +49,8 @@ Projectile calculators return the main motion quantities together.
 - Input validation with learner-friendly error messages
 - Support for negative velocities to represent direction
 - Default gravitational acceleration of `9.81 m/s²`
+- Light and dark modes with automatic system-theme detection
+- Saved theme preference across browser sessions
 - Responsive Dinglo interface for phones, tablets and computers
 - No database, API key or third-party Python package required
 - JSON endpoint for every calculation
@@ -62,8 +71,17 @@ variables to the Python endpoint and displays the returned solution.
 ```text
 Dinglo-Physics-Solver-Python/
 ├── .github/
-│   └── workflows/
-│       └── tests.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   └── feature_request.yml
+│   ├── workflows/
+│   │   └── tests.yml
+│   └── PULL_REQUEST_TEMPLATE.md
+├── docs/
+│   ├── CONTRIBUTOR_TASKS.md
+│   ├── MAINTAINER_SETUP.md
+│   └── PHYSICS_CONTRIBUTION_GUIDE.md
 ├── static/
 │   ├── app.js
 │   └── style.css
@@ -74,11 +92,14 @@ Dinglo-Physics-Solver-Python/
 ├── .gitattributes
 ├── .gitignore
 ├── app.py
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── pyproject.toml
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── SECURITY.md
 ```
 
 ## Run locally
@@ -93,8 +114,8 @@ Dinglo-Physics-Solver-Python/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Dinglo-Physics-Solver-Python.git
-cd Dinglo-Physics-Solver-Python
+git clone https://github.com/YOUR-USERNAME/Dinglo-Physics-Solver.git
+cd Dinglo-Physics-Solver
 ```
 
 Start the server:
@@ -137,6 +158,25 @@ python -m unittest discover -s tests -v
 
 The automated test suite checks the main equations, inverse calculations,
 projectile outputs and validation errors.
+
+## Contributing
+
+Contributions are welcome from beginners and experienced developers.
+
+1. Read [CONTRIBUTING.md](CONTRIBUTING.md).
+2. Choose an issue labelled `good first issue` or `help wanted`.
+3. Fork the repository and create a focused branch.
+4. Make the change and add tests.
+5. Run the complete test suite.
+6. Open a pull request using the included template.
+
+See [Contributor Task Ideas](docs/CONTRIBUTOR_TASKS.md) for ready-to-create
+community issues. Physics changes must follow the
+[Physics Contribution Guide](docs/PHYSICS_CONTRIBUTION_GUIDE.md).
+
+Repository owners should complete the one-time
+[Maintainer Setup](docs/MAINTAINER_SETUP.md) after uploading the files to
+GitHub.
 
 ## API
 
@@ -216,4 +256,4 @@ Dinglo
 
 ## License
 
-Copyright © 2026 Mangena Kegorapetse. All rights reserved. See [LICENSE](LICENSE).
+Released under the [MIT License](LICENSE). Copyright © 2026 Mangena Kegorapetse.

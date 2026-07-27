@@ -1,6 +1,6 @@
 [project]
 name = "dinglo-physics-solver"
-version = "1.0.0"
+version = "1.2.0"
 description = "A Dinglo-branded Python mechanics calculator with step-by-step solutions."
 readme = "README.md"
 requires-python = ">=3.10"
