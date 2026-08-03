@@ -37,6 +37,16 @@ def number(data: dict[str, Any], key: str) -> float | None:
     return value
 
 
+def positive_gravity(data: dict[str, Any]) -> float:
+    """Return the supplied gravitational acceleration or the Earth default."""
+    value = number(data, "g")
+    if value is None:
+        return 9.81
+    if value <= 0:
+        raise SolverError("Gravity must be positive.")
+    return value
+
+
 def display(value: float) -> str:
     if not math.isfinite(value):
         raise SolverError("The calculation produced an invalid result.")
@@ -152,11 +162,11 @@ def solve_collision(data: dict[str, Any]) -> dict[str, Any]:
 
 def solve_projectile(data: dict[str, Any]) -> dict[str, Any]:
     speed, angle = number(data, "u"), number(data, "theta")
-    gravity = number(data, "g") or 9.81
+    gravity = positive_gravity(data)
     if speed is None or angle is None:
         raise SolverError("Enter launch speed and angle.")
-    if speed < 0 or gravity <= 0 or not 0 <= angle <= 90:
-        raise SolverError("Use u ≥ 0, g > 0 and an angle from 0° to 90°.")
+    if speed < 0 or not 0 <= angle <= 90:
+        raise SolverError("Use u ≥ 0 and an angle from 0° to 90°.")
     radians = math.radians(angle)
     ux, uy = speed * math.cos(radians), speed * math.sin(radians)
     time = 2 * uy / gravity
@@ -175,11 +185,11 @@ def solve_projectile(data: dict[str, Any]) -> dict[str, Any]:
 
 def solve_horizontal(data: dict[str, Any]) -> dict[str, Any]:
     speed, height = number(data, "u"), number(data, "h")
-    gravity = number(data, "g") or 9.81
+    gravity = positive_gravity(data)
     if speed is None or height is None:
         raise SolverError("Enter horizontal speed and height.")
-    if speed < 0 or height < 0 or gravity <= 0:
-        raise SolverError("Speed and height cannot be negative, and gravity must be positive.")
+    if speed < 0 or height < 0:
+        raise SolverError("Speed and height cannot be negative.")
     time = math.sqrt(2 * height / gravity)
     distance = speed * time
     vertical_speed = gravity * time
@@ -234,9 +244,7 @@ def solve_kinetic(data: dict[str, Any]) -> dict[str, Any]:
 
 
 def solve_potential(data: dict[str, Any]) -> dict[str, Any]:
-    gravity = number(data, "g") or 9.81
-    if gravity <= 0:
-        raise SolverError("Gravity must be positive.")
+    gravity = positive_gravity(data)
     unknown = one_blank(data, ["E", "m", "h"])
     energy, mass, height = number(data, "E"), number(data, "m"), number(data, "h")
     if unknown == "E":
