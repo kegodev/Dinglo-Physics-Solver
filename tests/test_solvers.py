@@ -79,6 +79,18 @@ class FormulaSolverTests(unittest.TestCase):
         with self.assertRaisesRegex(SolverError, "0° to 90°"):
             self.solve("projectile", u="20", theta="120", g="9.81")
 
+    def test_rejects_zero_gravity_for_angled_projectile(self):
+        with self.assertRaisesRegex(SolverError, "Gravity must be positive"):
+            self.solve("projectile", u="20", theta="45", g="0")
+
+    def test_rejects_zero_gravity_for_horizontal_projectile(self):
+        with self.assertRaisesRegex(SolverError, "Gravity must be positive"):
+            self.solve("horizontal", u="5", h="10", g="0")
+
+    def test_rejects_zero_gravity_for_potential_energy(self):
+        with self.assertRaisesRegex(SolverError, "Gravity must be positive"):
+            self.solve("potential", E="", m="2", g="0", h="5")
+
 
 class ThemeAssetTests(unittest.TestCase):
     @classmethod
