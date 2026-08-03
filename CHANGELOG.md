@@ -2,6 +2,11 @@
 
 All notable changes to Dinglo Physics Solver are documented here.
 
+## Unreleased
+
+- Fixed gravity-based calculators so an explicit value of zero is rejected
+  instead of being silently replaced with `9.81 m/s²`.
+
 ## 1.2.0 — Contributor-ready release
 
 - Replaced the proprietary licence with the MIT License.

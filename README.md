@@ -46,7 +46,8 @@ Projectile calculators return the main motion quantities together.
 - Formula rearrangement and step-by-step working
 - Input validation with learner-friendly error messages
 - Support for negative velocities to represent direction
-- Default gravitational acceleration of `9.81 m/s²`
+- Default gravitational acceleration of `9.81 m/s²` when the field is blank,
+  with zero and negative gravity rejected
 - Light and dark modes with automatic system-theme detection
 - Saved theme preference across browser sessions
 - Responsive Dinglo interface for phones, tablets and computers
