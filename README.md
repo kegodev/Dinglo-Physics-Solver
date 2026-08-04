@@ -1,5 +1,10 @@
 # Dinglo Physics Solver
 
+[![Tests](https://github.com/kegodev/Dinglo-Physics-Solver/actions/workflows/tests.yml/badge.svg)](https://github.com/kegodev/Dinglo-Physics-Solver/actions/workflows/tests.yml)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776ab)](https://www.python.org/)
+[![MIT License](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-2ea44f)](CONTRIBUTING.md)
+
 A polished Python web application that solves introductory mechanics problems
 from the variables supplied by the learner. It covers Newton's laws, momentum,
 projectile motion, work and energy while showing the formula, substitution and
@@ -68,7 +73,7 @@ variables to the Python endpoint and displays the returned solution.
 ## Project structure
 
 ```text
-Dinglo-Physics-Solver-Python/
+Dinglo-Physics-Solver/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
 │   │   ├── bug_report.yml
